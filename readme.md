@@ -82,7 +82,5 @@ docker login --username node4demo -p my-password
 
 ```
 docker push node4demo/webforms:v3
-```
-```
 docker push node4demo/specs:v3
 ```
