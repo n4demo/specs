@@ -22,7 +22,9 @@ docker image build . -t node4demo/webforms:v3
 ```
 
 ```
-docker image build . -t node4demo/specs:v3
+docker image build . -t node4demo/specs:win2016
+
+docker image build . -t node4demo/specs:win2019
 ```
 
 ### If you receive this error: 'This error may indicate that the docker daemon is not running.' - switch to Windows Containers
@@ -32,6 +34,8 @@ docker image build . -t node4demo/specs:v3
 
 ```
 docker run -it --rm --entrypoint powershell --name webforms-powershell node4demo/webforms:v3 cmd 
+
+docker run -it --rm --entrypoint powershell --name webforms-powershell node4demo/specs:2016 cmd 
 
 dir inetpub\wwwroot 
 
@@ -45,7 +49,9 @@ docker run -it -d --rm -p 5014:80 --name webforms node4demo/webforms:v3
 ```
 
 ```
-docker run -it -d --rm -p 5014:80 --name specs node4demo/specs:v3
+docker run -it -d --rm -p 5014:80 --name specs node4demo/specs:2016
+
+docker run -it -d --rm -p 5014:80 --name specs node4demo/specs:win2019-17763
 ```
 
 8. Obtain the ContainerID
@@ -81,6 +87,10 @@ docker login --username node4demo -p my-password
 12. push the image to docker hub container registry
 
 ```
-docker push node4demo/webforms:v3
-docker push node4demo/specs:v3
+docker push node4demo/specs:win2016-14393
+
+docker push node4demo/specs:win2019-17763
+
+docker push node4demo/specs:aspnet48 
+
 ```
